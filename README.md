@@ -1,6 +1,8 @@
-# Gamuda Flutter App Backend
+# Gamuda Flutter App (Assignment) Backend
 
 This repository contains the backend API service for [Gamuda Flutter App](https://gamuda-flutter-homework-01.web.app/), providing endpoint connections to a PostgreSQL database. The frontend source code can be found at [HJWongAtWork/gamuda_flutter_app](https://github.com/HJWongAtWork/gamuda_flutter_app).
+
+NOTE: THIS IS NOT AN OFFICIAL GAMUDA PROJECT.
 
 ## Prerequisites
 
