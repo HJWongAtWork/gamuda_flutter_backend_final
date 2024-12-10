@@ -12,6 +12,8 @@ Install PostgreSQL if you haven't already, and create a PostgreSQL database:
 createdb your_database_name
 ```
 
+Leave the database empty, as there are methods in place for creating and populating the tables.
+
 ## Setup Instructions
 
 ### Environment Setup
