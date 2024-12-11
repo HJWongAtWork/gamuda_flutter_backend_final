@@ -6,35 +6,13 @@ NOTE: THIS IS NOT AN OFFICIAL GAMUDA PROJECT. THIS IS PART OF A PERSONAL ASSIGNM
 
 ## Prerequisites
 
-Install PostgreSQL if you haven't already, and create a PostgreSQL database:
+Install PostgreSQL (I used version 16) if you haven't already, and create a PostgreSQL database:
 
 ```bash
 createdb your_database_name
 ```
 
 Leave the database empty, as there are methods in place for creating and populating the tables.
-
-## Setup Instructions
-
-### Environment Setup
-
-Create and activate a virtual environment:
-
-```bash
-python3 -m venv venv
-source venv/bin/activate  # For Unix/macOS
-```
-or
-```bash
-python3 -m venv venv
-.\venv\Scripts\activate  # For Windows
-```
-
-### Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
 
 ## Configuration
 
@@ -56,15 +34,58 @@ GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 ```
 
-## Running the Application
+## Setup Instructions (Option 1: Docker)
+
+If you have Docker installed, you may activate Docker and build the app as such:
+
+```powershell
+$env:DOCKER_BUILDKIT=1; docker build -t myapp .
+```
+
+Then run the container with your own .env file:
+
+```powershell
+docker run -p 8000:8000 --add-host=host.docker.internal:host-gateway --env-file .env myapp
+```
+
+NOTE: In your .env file, you would need to replace your DB_HOSTPORT with this:
+
+```powershell
+DB_HOSTPORT=localhost:5432              # PostgreSQL standard host:port
+DB_HOSTPORT=host.docker.internal:5432   # Docker-required host:port
+```
+
+## Setup Instructions (Option 2: venv)
+
+### Environment Setup
+
+Create and activate a virtual environment:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate  # For Unix/macOS
+```
+or
+```powershell
+python3 -m venv venv
+.\venv\Scripts\activate  # For Windows
+```
+
+### Install dependencies:
+
+```powershell
+pip install -r requirements.txt
+```
+
+### Running the Application
 
 Start the server from the root directory:
 
-```bash
+```powershell
 python3 main.py
 ```
 or
-```bash
+```powershell
 python3 -m uvicorn main:app --reload
 ```
 
