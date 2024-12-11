@@ -59,7 +59,7 @@ DB_HOSTPORT=host.docker.internal:5432   # Docker-required host:port
 
 ### Environment Setup
 
-Create and activate a virtual environment:
+Create and activate a virtual environment (I used Python 3.12):
 
 ```bash
 python3 -m venv venv
